@@ -39,7 +39,7 @@ pipeline {
             steps{
                 script{
                     sh '''
-                            docker run -d --name zuul -p 8761:8761 zuul:latest
+                            docker run -d --name zuul -p 9996:9996 zuul:latest
                         '''
                 }
             }
@@ -48,7 +48,7 @@ pipeline {
                     emailext (
                         subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER} ",
                         body: """CI/CD pipeline greska u "Build" fazi. Log fajl se moze videti na: href=${env.BUILD_URL} """,
-                        to: "marija.jelicic@netcast.rs",
+                        to: "djmatovic16@raf.rs",
                         from: "jenkins@jenkins.netcast.rs"
                     )
                 }
